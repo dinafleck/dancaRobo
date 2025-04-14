@@ -6,7 +6,7 @@ public class Quadrilha {
     long voltas;
     int[] receita;
     ArrayList<Integer> quadrilhas;
-    ArrayList<Long> registroDeVoltas;
+    ArrayList<String> registroDeVoltas;
 
     public Quadrilha(int quantidade, int[] receita) {
             this.quantidade = quantidade;
@@ -23,33 +23,34 @@ public class Quadrilha {
         }
 
         public long dancar(){
-            long repeticao = arrayParaLong();
+            String repeticao = arrayParaString();
             if (jaRepetiu(repeticao)) return voltas;
             else {
                 registroDeVoltas.add(repeticao);
-                System.out.println(registroDeVoltas);
                 ArrayList<Integer> temp = new ArrayList<>(quadrilhas);
                 for (int i = 0; i < quantidade; i++) {
                     quadrilhas.set(i, temp.get(receita[i]));
                 }
                     voltas++;
+                    System.out.println(voltas);
+                    System.out.println(repeticao);
                     System.out.println(quadrilhas);
                     dancar();
                 }
                 return voltas;
         }
 
-        private long arrayParaLong(){
-            long temp = 0;
+        private String arrayParaString(){
+            String temp = "";
             for (int valor : quadrilhas){
-                temp = temp*10 + valor;
+                temp = temp + valor;
             }
             return temp;
         }
 
-        private boolean jaRepetiu(long repeticao){
-          for (long valor : registroDeVoltas){
-              if (valor == repeticao) return true;
+        private boolean jaRepetiu(String repeticao){
+          for (String valor : registroDeVoltas){
+              if (valor.equals(repeticao)) return true;
           }
           return false;
         }
