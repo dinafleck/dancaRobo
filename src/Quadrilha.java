@@ -4,7 +4,6 @@ public class Quadrilha {
     int quantidade;
     int posicao;
     long voltas;
-    //int[] receita = {5,6,0,4,2,3,1};
     int[] receita;
     ArrayList<Integer> quadrilhas;
     ArrayList<Long> registroDeVoltas;
@@ -28,6 +27,7 @@ public class Quadrilha {
             if (jaRepetiu(repeticao)) return voltas;
             else {
                 registroDeVoltas.add(repeticao);
+                System.out.println(registroDeVoltas);
                 ArrayList<Integer> temp = new ArrayList<>(quadrilhas);
                 for (int i = 0; i < quantidade; i++) {
                     quadrilhas.set(i, temp.get(receita[i]));
