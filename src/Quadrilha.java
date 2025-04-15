@@ -23,29 +23,26 @@ public class Quadrilha {
         }
 
         public long dancar(){
-            String repeticao = arrayParaString();
-            if (jaRepetiu(repeticao)) return voltas;
-            else {
-                registroDeVoltas.add(repeticao);
+
+            while (!jaRepetiu(arrayParaString())) {
+                registroDeVoltas.add(arrayParaString());
                 ArrayList<Integer> temp = new ArrayList<>(quadrilhas);
                 for (int i = 0; i < quantidade; i++) {
                     quadrilhas.set(i, temp.get(receita[i]));
                 }
-                    voltas++;
-                    System.out.println(voltas);
-                    System.out.println(repeticao);
-                    System.out.println(quadrilhas);
-                    dancar();
+                voltas++;
+                System.out.println(voltas);
+                System.out.println(quadrilhas);
                 }
-                return voltas;
-        }
+            return voltas;
+            }
 
         private String arrayParaString(){
-            String temp = "";
+            StringBuilder temp = new StringBuilder();
             for (int valor : quadrilhas){
-                temp = temp + valor;
+                temp.append(valor);
             }
-            return temp;
+            return temp.toString();
         }
 
         private boolean jaRepetiu(String repeticao){
