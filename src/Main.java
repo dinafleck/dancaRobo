@@ -19,9 +19,7 @@ public class Main {
         System.out.println("Muito bem! Vamos começar.");
         Quadrilha primeiraDanca = new Quadrilha(quantidadeRobos, receita);
         primeiraDanca.adicionaQuadrilha();
-
-        System.out.println("Acompanhe o movimento dos robôs abaixo:");
-        System.out.println(primeiraDanca.quadrilhas);
+        
         long voltas = primeiraDanca.dancar();
 
         System.out.println();
